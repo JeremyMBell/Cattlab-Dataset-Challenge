@@ -2,8 +2,11 @@
 public class Driver {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		try {
+			new HTMLReader("index.html");
+		} catch(Exception e) {
+			
+		}
 	}
 
 }
