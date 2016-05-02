@@ -22,6 +22,5 @@ public class HTMLReader {
 		}
 		
 		html = sb.toString();
-		System.out.println(html);
 	}
 }
