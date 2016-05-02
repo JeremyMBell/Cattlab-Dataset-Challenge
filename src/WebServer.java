@@ -19,8 +19,11 @@ public class WebServer {
 	String request ;
 	 BufferedReader in;
     PrintWriter out;
-    String fileName;
+    String fileName, contentType;
     int endOfRequest;
+    File file;
+    int byteOfData;
+    FileInputStream fileInputStream;
 	while(true) {
 		
 		System.out.println("WAITING...");
@@ -46,7 +49,7 @@ public class WebServer {
 
           fileName= request.substring(5, endOfRequest);
          
-          if(!fileName.contains("ico")) {
+          if(fileName.contains("html") ) {
          	 html = new HTMLReader(fileName);
              
              out.print("HTTP/1.1 200 OK" + "\n");
@@ -62,7 +65,30 @@ public class WebServer {
 
           }
           else {
-         	System.out.println("CANT DO");
+         	file = new File(fileName);
+         	contentType= URLConnection.getFileNameMap().getContentTypeFor(
+                  file.toString());
+         	
+         	fileInputStream= new FileInputStream(file);
+
+            // send the HTTP header to the client (first part of the response)
+            out.print("HTTP/1.1 200 OK" + "\n");
+            out.print("Content-Length: " + file.length() + "\n");
+            out.print("Content-Type: " + contentType + "\n");
+            out.print("\n");
+            out.flush();
+
+            // read and send the actual data to the client (either the text
+            // file, the PDF, or the JPEG)
+            byteOfData= fileInputStream.read();
+            while (byteOfData != -1) {
+              clientSocket.getOutputStream().write(byteOfData);
+              byteOfData= fileInputStream.read();
+            }
+
+            out.flush();
+            out.close();
+            fileInputStream.close();
           }
           
         }
