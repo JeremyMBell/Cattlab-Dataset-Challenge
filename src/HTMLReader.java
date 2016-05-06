@@ -9,7 +9,6 @@ public class HTMLReader {
 	public HTMLReader(String fileName) throws FileNotFoundException, IllegalArgumentException {
 		if(!fileName.endsWith(".html")) {
 			throw new IllegalArgumentException("This is not an html file.");
-			
 		}
 		BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
 		StringBuffer sb = new StringBuffer();
@@ -23,5 +22,6 @@ public class HTMLReader {
 		}
 		
 		html = sb.toString();
+		System.out.println(html);
 	}
 }

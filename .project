@@ -14,21 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>TripRecordsReportTrips.csv</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Downloads/TripRecordsReportTrips.csv</locationURI>
-		</link>
-		<link>
-			<name>clouds.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/clouds.jpg</locationURI>
-		</link>
-		<link>
-			<name>file.csv</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Cattlab-Dataset-Challenge/file.csv</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
